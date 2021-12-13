@@ -1,6 +1,7 @@
 import csv
 import sqlite3
 
+from queue import Queue
 
 def main():
     con = sqlite3.connect("adult.db")
@@ -14,6 +15,12 @@ def main():
 
     cur.execute("SELECT * FROM adult")
     print(cur.fetchall())
+    dimension_tables_set={"age", "relationship", "race", "gender"}
+    k = input("enter a k:")
+    quasi_identifier_set = {"age", "relationship", "race", "gender"}
+    queue =  Queue(maxsize = 0)
+    for i in quasi_identifier_set:
+
 
     con.commit()
     con.close()
